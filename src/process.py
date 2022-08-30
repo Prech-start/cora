@@ -32,8 +32,7 @@ if not os.path.exists('whole_adjacency.npy'):
         y = raw_index_to_[j]
         matrix_[x, y] = matrix_[y, x] = 1
     # 创建归一化拉普拉斯矩阵
-    matrix_ = normalization_laplacian(matrix_)
-    np.save('whole_adjacency', np.asarray(matrix_).astype(np.int8))
+    np.save('whole_adjacency', np.asarray(matrix_).astype(np.float64))
 else:
     matrix_ = np.load('whole_adjacency.npy')
 
@@ -47,5 +46,6 @@ train_features = features[:train_len, ...]
 valid_features = features[train_len:, ...]
 train_labels = labels[:train_len, ...]
 valid_labels = labels[train_len:, ...]
+matrix_ = normalization_laplacian(matrix_)
 
 print()

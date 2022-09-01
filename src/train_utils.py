@@ -36,6 +36,6 @@ def pic_loss_acc():
         ax2.plot([i for i in range(len_train)], valid_acc, '-', label='valid_acc', color='black')
         ax.legend()
         ax2.legend()
-        plt.savefig('loss_acc_line_final0.png', bbox_inches='tight')
+        plt.savefig('loss_acc_line_final5.png', bbox_inches='tight')
 pic_loss_acc()
 

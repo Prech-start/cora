@@ -40,12 +40,15 @@ print(matrix_.shape)
 
 train_len = num // 10 * 8
 valid_len = num - train_len
-train_adjacency = matrix_[:train_len, :train_len]
-valid_adjacency = matrix_[train_len:, train_len:]
+# matrix_ = normalization_laplacian(matrix_)
+train_adjacency = normalization_laplacian(matrix_[:train_len, :train_len])
+valid_adjacency = normalization_laplacian(matrix_[train_len:, train_len:])
+# train_adjacency = matrix_[:train_len, :train_len]
+# valid_adjacency = matrix_[train_len:, train_len:]
 train_features = features[:train_len, ...]
 valid_features = features[train_len:, ...]
 train_labels = labels[:train_len, ...]
 valid_labels = labels[train_len:, ...]
-matrix_ = normalization_laplacian(matrix_)
+
 
 print()

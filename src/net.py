@@ -38,6 +38,8 @@ class Net(nn.Module):
         self.gcn1 = GCN(input_dim=input_dim, output_dim=16)
         # self.gcn3 = GCN(input_dim=16, output_dim=32)
         # self.gcn4 = GCN(input_dim=32, output_dim=16)
+        self.linear = nn.Linear(16, 32)
+        self.linear2 = nn.Linear(32, 16)
         self.gcn2 = GCN(input_dim=16, output_dim=7)
         self.soft = nn.Softmax(dim=1)
 
@@ -46,5 +48,5 @@ class Net(nn.Module):
         # h = F.relu(self.gcn3(adjacency, h))
         # h = F.relu(self.gcn4(adjacency, h))
         h = self.gcn2(adjacency, h)
-        out = self.soft(h)
-        return out
+        # out = self.soft(h)
+        return h

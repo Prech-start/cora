@@ -4,7 +4,7 @@ import net
 import train_utils
 
 # 超参数定义
-LEARNING_RATE = 1e-2  # 学习率
+LEARNING_RATE = 1e-3  # 学习率
 WEIGHT_DACAY = 5e-4  # 正则化系数
 EPOCHS = 3000  # 完整遍历训练集的次数
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"  # 设备
